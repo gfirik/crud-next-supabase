@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Head from 'next/head'
 import Link from 'next/link'
 import { supabase } from '../api'
 
@@ -9,7 +10,10 @@ export default function Home() {
     fetchPosts()
     const mySubscription = supabase
       .from('posts')
-      .on('*', () => fetchPosts())
+      .on('*', () => {
+        console.log('something happened....')
+        fetchPosts()
+      })
       .subscribe()
     return () => supabase.removeSubscription(mySubscription)
   }, [])
@@ -22,16 +26,21 @@ export default function Home() {
   }
   if (loading) return <p className="text-2xl">Loading ...</p>
   if (!posts.length) return <p className="text-2xl">No posts.</p>
+
   return (
     <div>
-      <h1 className="text-3xl font-semibold tracking-wide mt-6 mb-2">Posts</h1>
+      <Head>
+        <title>Share Ideas</title>
+      </Head>
+
+      <h1 className="mt-6 mb-2 text-3xl font-semibold tracking-wide">Posts</h1>
       {
         posts.map(post => (
           <Link key={post.id} href={`/posts/${post.id}`} passHref>
-            <div className="cursor-pointer border-b border-gray-300	mt-8 pb-4">
+            <a className="block pb-4 mt-8 border-b border-gray-300">
               <h2 className="text-xl font-semibold">{post.title}</h2>
-              <p className="text-gray-500 mt-2">Author: {post.user_email}</p>
-            </div>
+              <p className="mt-2 text-gray-500">Author: {post.user_email}</p>
+            </a>
           </Link>)
         )
       }

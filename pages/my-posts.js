@@ -25,16 +25,24 @@ export default function MyPosts() {
   }
   return (
     <div>
-      <h1 className="text-3xl font-semibold tracking-wide mt-6 mb-2">My Posts</h1>
+      <h1 className="mt-6 mb-2 text-3xl font-semibold tracking-wide">My Posts</h1>
       {
         posts.map((post, index) => (
-          <div key={index} className="border-b border-gray-300	mt-8 pb-4">
+          <div key={index} className="pb-4 mt-8 border-b border-gray-300">
             <h2 className="text-xl font-semibold">{post.title}</h2>
-            <p className="text-gray-500 mt-2 mb-2">Author: {post.user_email}</p>
-            <Link href={`/edit-post/${post.id}`} passHref><a className="text-sm mr-4 text-blue-500">Edit Post</a></Link>
-            <Link href={`/posts/${post.id}`} passHref><a className="text-sm mr-4 text-blue-500">View Post</a></Link>
+            <p className="mt-2 mb-2 text-gray-500">Author: {post.user_email}</p>
+            <Link href={`/edit-post/${post.id}`} passHref>
+              <a 
+                className="mr-4 text-sm text-blue-500" 
+              >Edit Post</a>
+            </Link>
+            <Link href={`/posts/${post.id}`} passHref>
+              <a 
+                className="mr-4 text-sm text-blue-500" 
+              >View Post</a>
+            </Link>
             <button
-              className="text-sm mr-4 text-red-500"
+              className="mr-4 text-sm text-red-500"
               onClick={() => deletePost(post.id)}
             >Delete Post</button>
           </div>
