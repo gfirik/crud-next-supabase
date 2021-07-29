@@ -31,8 +31,8 @@ export default function MyPosts() {
           <div key={index} className="border-b border-gray-300	mt-8 pb-4">
             <h2 className="text-xl font-semibold">{post.title}</h2>
             <p className="text-gray-500 mt-2 mb-2">Author: {post.user_email}</p>
-            <Link href={`/edit-post/${post.id}`}><a className="text-sm mr-4 text-blue-500">Edit Post</a></Link>
-            <Link href={`/posts/${post.id}`}><a className="text-sm mr-4 text-blue-500">View Post</a></Link>
+            <Link href={`/edit-post/${post.id}`} passHref><a className="text-sm mr-4 text-blue-500">Edit Post</a></Link>
+            <Link href={`/posts/${post.id}`} passHref><a className="text-sm mr-4 text-blue-500">View Post</a></Link>
             <button
               className="text-sm mr-4 text-red-500"
               onClick={() => deletePost(post.id)}
