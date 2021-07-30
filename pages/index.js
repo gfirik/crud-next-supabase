@@ -44,6 +44,12 @@ export default function Home() {
           </Link>)
         )
       }
+
+      <footer>
+        <Link href="https://gfirik.vercel.app" passHref >
+          <a target="_blank" className="cursor-pointer">gfirik | 2021</a> 
+        </Link>
+      </footer>
     </div>
   )
 }
