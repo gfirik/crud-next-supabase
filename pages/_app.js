@@ -18,31 +18,38 @@ function MyApp({ Component, pageProps }) {
   }
   return (
   <div>
-    <nav className="p-6 border-b border-gray-300">
+    <nav className="flex items-center justify-around w-full h-16 border-b border-gray-300 shadow-xl">
       <Link href="/" passHref>
-        <a className="m-6">Home</a>
+        <a>Home</a>
       </Link>
       {
         user && (
           <Link href="/create-post" passHref>
-            <a className="m-6">Create Post</a>
+            <a>Create Post</a>
           </Link>
         )
       }
       {
         user && (
           <Link href="/my-posts" passHref>
-            <span className="mr-6 cursor-pointer">My Posts</span>
+            <a>My Posts</a>
           </Link>
         )
       }
       <Link href="/profile" passHref>
-        <a className="m-6">Profile</a>
+        <a>Profile</a>
       </Link>
     </nav>
+    
     <div className="px-16 py-8">
       <Component {...pageProps} />
     </div>
+
+    <footer className="px-16 mt-8">
+        <Link href="https://gfirik.vercel.app" passHref >
+          <a target="_blank" className="cursor-pointer">gfirik | 2021</a> 
+        </Link>
+    </footer>
   </div>
   )
 }

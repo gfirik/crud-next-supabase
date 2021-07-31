@@ -36,20 +36,16 @@ export default function Home() {
       <h1 className="mt-6 mb-2 text-3xl font-semibold tracking-wide">Posts</h1>
       {
         posts.map(post => (
-          <Link key={post.id} href={`/posts/${post.id}`} passHref>
-            <a className="block pb-4 mt-8 border-b border-gray-300">
+          <Link key={post.id} href={`/posts/${post.id}`} passHref
+            className=""
+          >
+            <a className="block w-full h-auto p-4 pb-4 mx-auto mt-8 transition duration-200 border-b border-gray-300 shadow-lg hover:shadow-sm">
               <h2 className="text-xl font-semibold">{post.title}</h2>
-              <p className="mt-2 text-gray-500">Author: {post.user_email}</p>
+              <p className="mt-2 text-green-500">Author: {post.user_email}</p>
             </a>
           </Link>)
         )
       }
-
-      <footer>
-        <Link href="https://gfirik.vercel.app" passHref >
-          <a target="_blank" className="cursor-pointer">gfirik | 2021</a> 
-        </Link>
-      </footer>
     </div>
   )
 }
