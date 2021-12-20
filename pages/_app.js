@@ -45,9 +45,9 @@ function MyApp({ Component, pageProps }) {
       <Component {...pageProps} />
     </div>
 
-    <footer className="px-16 mt-8">
+    <footer className="w-full px-16 my-8 text-center">
         <Link href="https://gfirik.vercel.app" passHref >
-          <a target="_blank" className="cursor-pointer">gfirik | 2021</a> 
+          <a target="_blank" className="cursor-pointer">&copy;gfirik | 2021</a> 
         </Link>
     </footer>
   </div>

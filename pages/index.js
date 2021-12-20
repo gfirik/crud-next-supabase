@@ -43,8 +43,8 @@ export default function Home() {
               <h2 className="text-xl font-semibold">{post.title}</h2>
               <p className="mt-2 text-green-500">Author: {post.user_email}</p>
             </a>
-          </Link>)
-        )
+          </Link>
+        ))
       }
     </div>
   )
